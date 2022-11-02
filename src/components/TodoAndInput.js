@@ -7,6 +7,9 @@ import {
   TodoFooterMobile,
   ParagraphLength,
   Paragraph,
+  Paragraph1,
+  Paragraph2,
+  Paragraph3,
   FooterSections,
   BoxShadow,
   FooterSectionsMobile,
@@ -69,6 +72,16 @@ export default function TodoAndInput() {
     setTodos(onlyNotActive);
   }
   const todosLength = todos.filter((todo) => !todo.completed);
+  function Length() {
+    if (filter === "all") {
+      return todos.length;
+    } else if (filter === "active") {
+      return todosLength.length;
+    } else if (filter === "completed") {
+      const todoCompleted = todos.filter((todo) => todo.completed);
+      return todoCompleted.length;
+    }
+  }
   return (
     <>
       <Input
@@ -112,27 +125,35 @@ export default function TodoAndInput() {
         )}
         <FooterSectionsMobile>
           <TodoFooterMobile>
-            <ParagraphLength>{todosLength.length} items left</ParagraphLength>
+            <ParagraphLength>{Length()} items left</ParagraphLength>
             <Paragraph onClick={() => clearCompleted()}>
               Clear Completed
             </Paragraph>
           </TodoFooterMobile>
           <FooterSections>
-            <Paragraph onClick={() => setFilter("all")}>All</Paragraph>
-            <Paragraph onClick={() => setFilter("active")}>Active</Paragraph>
-            <Paragraph onClick={() => setFilter("completed")}>
+            <Paragraph1 filter={filter} onClick={() => setFilter("all")}>
+              All
+            </Paragraph1>
+            <Paragraph2 filter={filter} onClick={() => setFilter("active")}>
+              Active
+            </Paragraph2>
+            <Paragraph3 filter={filter} onClick={() => setFilter("completed")}>
               Completed
-            </Paragraph>
+            </Paragraph3>
           </FooterSections>
         </FooterSectionsMobile>
         <FooterSectionsDesktop>
-          <ParagraphLength>{todosLength.length} items left</ParagraphLength>
+          <ParagraphLength>{Length()} items left</ParagraphLength>
           <FooterSections>
-            <Paragraph onClick={() => setFilter("all")}>All</Paragraph>
-            <Paragraph onClick={() => setFilter("active")}>Active</Paragraph>
-            <Paragraph onClick={() => setFilter("completed")}>
+            <Paragraph1 filter={filter} onClick={() => setFilter("all")}>
+              All
+            </Paragraph1>
+            <Paragraph2 filter={filter} onClick={() => setFilter("active")}>
+              Active
+            </Paragraph2>
+            <Paragraph3 filter={filter} onClick={() => setFilter("completed")}>
               Completed
-            </Paragraph>
+            </Paragraph3>
           </FooterSections>
           <Paragraph onClick={() => clearCompleted()}>
             Clear Completed

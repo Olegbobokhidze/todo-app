@@ -61,6 +61,51 @@ export const Paragraph = styled.p`
     margin-right: 10px;
   }
 `;
+export const Paragraph1 = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${(props) =>
+    props.filter === "all" ? "#3A7CFD" : props.theme.footerColorP};
+  cursor: pointer;
+  font-weight: 700;
+  &:hover {
+    color: ${(props) =>
+      props.filter === "all" ? "#3A7CFD" : props.theme.footerHoverP};
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 10px;
+  }
+`;
+export const Paragraph2 = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${(props) =>
+    props.filter === "active" ? "#3A7CFD" : props.theme.footerColorP};
+  cursor: pointer;
+  font-weight: 700;
+  &:hover {
+    color: ${(props) =>
+      props.filter === "active" ? "#3A7CFD" : props.theme.footerHoverP};
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 10px;
+  }
+`;
+export const Paragraph3 = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${(props) =>
+    props.filter === "completed" ? "#3A7CFD" : props.theme.footerColorP};
+  cursor: pointer;
+  font-weight: 700;
+  &:hover {
+    color: ${(props) =>
+      props.filter === "completed" ? "#3A7CFD" : props.theme.footerHoverP};
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 10px;
+  }
+`;
 export const ParagraphLength = styled.p`
   font-size: 12px;
   font-weight: 400;
